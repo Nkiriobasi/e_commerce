@@ -1,8 +1,10 @@
+import Products from './components/Products/Products';
+
 
 function App() {
   return (
-    <div className="App">
-      <h1>E-commerce</h1>
+    <div className="app">
+      <Products />
     </div>
   );
 }

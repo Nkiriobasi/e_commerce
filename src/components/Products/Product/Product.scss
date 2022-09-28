@@ -1,0 +1,67 @@
+@use '../../../variables';
+
+.card{
+    width: 24%;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    margin-top: 1rem;
+
+    @media #{variables.$media-desktop-lg} {
+        width: 32%;
+    }
+
+    @media #{variables.$media-tablet} {
+        width: 48%;
+    }
+
+    @media #{variables.$media-mobile-sm} {
+        width: 100%;
+    }
+
+    .card__media{
+        height: 0;
+        padding-top: 56.25%;
+    }
+
+    .card__content, .card__actions{
+        padding: 0.5rem;
+    }
+    
+
+    .product__flex{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+
+        .product__name, .product__prize{
+            font-size: 1.25rem;
+            color: rgb(55 65 81);
+
+            @media #{variables.$media-tablet} {
+                font-size: 1.125rem;
+            }
+        
+        }
+    }
+
+    .product__desc{
+        color: rgb(156 163 175);
+        font-size: 0.875rem;
+        line-height: 1.25;
+        margin-bottom: 0.5rem;
+    }
+
+    .card__actions{
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+
+        span{
+            display: block;
+
+            .atc__icon{
+                display: block;
+            }
+        }
+    }
+}
