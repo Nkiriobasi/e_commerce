@@ -19,13 +19,15 @@ const Products = () => {
   return (
     <React.Fragment>
         <div className='products'>
-            {products.map(product => {
-                return (
-                    <React.Fragment key={product.id}>
-                        <Product product={product} />
-                    </React.Fragment>
-                )
-            })}
+            <div className="container">
+                {products.map(product => {
+                    return (
+                        <React.Fragment key={product.id}>
+                            <Product product={product} />
+                        </React.Fragment>
+                    )
+                })}
+            </div>
         </div>
     </React.Fragment>
   )
