@@ -5,7 +5,7 @@ import logo from '../../assets/shopping.png';
 import './Navbar.scss';
 
 
-const Navbar = () => {
+const Navbar = ({totalItems}) => {
   return (
     <nav className='navbar'>
       <div className="container">
@@ -21,7 +21,7 @@ const Navbar = () => {
         <div className="nav__right">
           <div className="notification" aria-label='show cart items'>
             <HiShoppingCart className='notification__icon' />
-            <span className="badge">3</span>
+            <span className="badge">{totalItems}</span>
           </div>
         </div>
       </div>

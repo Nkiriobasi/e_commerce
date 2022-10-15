@@ -1,25 +1,30 @@
 @use '../../../variables';
 
 .card{
-    width: 24%;
+    width: 400px;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     margin-top: 1rem;
 
-    @media #{variables.$media-desktop-lg} {
-        width: 32%;
-    }
+    // @media #{variables.$media-desktop-lg} {
+    //     width: 32%;
+    // }
 
-    @media #{variables.$media-tablet} {
-        width: 48%;
-    }
+    // @media #{variables.$media-tablet} {
+    //     width: 48%;
+    // }
 
-    @media #{variables.$media-mobile-sm} {
-        width: 100%;
-    }
+    // @media #{variables.$media-mobile-sm} {
+    //     width: 100%;
+    // }
 
     .card__media{
-        height: 0;
-        padding-top: 56.25%;
+        width: 100%;
+        height: 190px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5rem;
+        background-color: rgb(243 244 246);
     }
 
     .card__content, .card__actions{
@@ -33,7 +38,7 @@
         margin-top: 0.5rem;
         margin-bottom: 1rem;
 
-        .product__name, .product__prize{
+        .product__name, .product__price{
             font-size: 1.25rem;
             color: rgb(55 65 81);
 
@@ -56,12 +61,20 @@
         display: flex;
         justify-content: flex-end;
 
-        span{
-            display: block;
+        button{
+            display: inline-block;
+            border: none;
+            border-radius: 50%;
+            padding: 0.375rem;
+            cursor: pointer;
+            background-color: initial;
 
             .atc__icon{
-                display: block;
+                display: inherit;
             }
+        }
+        button:hover{
+            background-color: rgb(156, 156, 157);
         }
     }
 }
