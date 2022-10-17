@@ -1,11 +1,11 @@
 import React from 'react';
 import { HiShoppingCart } from 'react-icons/hi';
-// import { Link } from 'react-router-dom';
 import logo from '../../assets/shopping.png';
 import './Navbar.scss';
 
 
-const Navbar = ({totalItems}) => {
+const Navbar = () => {
+  
   return (
     <nav className='navbar'>
       <div className="container">
@@ -21,7 +21,7 @@ const Navbar = ({totalItems}) => {
         <div className="nav__right">
           <div className="notification" aria-label='show cart items'>
             <HiShoppingCart className='notification__icon' />
-            <span className="badge">{totalItems}</span>
+            <span className="badge">{4}</span>
           </div>
         </div>
       </div>

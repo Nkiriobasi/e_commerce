@@ -1,30 +1,48 @@
 import React, { useState, useEffect } from 'react';
 import { Products, Navbar } from './components';
 import { commerce } from '././lib/commerce';
+import { Routes, Route } from "react-router-dom";
 
 
 function App() {
-  const [ products, setProducts ] = useState([]);
-  // const [ cart, setCart ] = useState({});
+  const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  // const [cart, setCart] = useState({});
+
   
   // Fetching the products
   const fetchProducts = () => {
-    commerce.products.list().then((products) => {
+    setIsLoading(true); // display loading screen
+    commerce.products.list().then( products => {
       setProducts(products.data);
-    }).catch((error) => {
-      console.log('There was an error fetching the products', error)
+      setIsLoading(false);   // Hide loading screen 
+    }).catch(() => {
+      setErrorMessage("Unable to fetch user list");
+      setIsLoading(false);
     });
   }
 
-  // // Featching cart contents
-  // const fetchCart = async () => {
-  //   setCart(await commerce.cart.retrieve());
+  // Featching cart contents
+
+  // const fetchCart = () => {
+  //   commerce.cart.retrieve().then( cart => {
+  //     setCart(cart);
+  //   }).catch( error => {
+  //     throw Error(error);
+  //   });
   // }
 
-  // // Adding the products to the cart
-  // const handleAddToCart = async ( productId, quantity ) => {
-  //   const item = await commerce.cart.add(productId, quantity);
-  //   setCart(item.cart);
+
+
+  // Adding a product to the cart
+
+  // const handleAddToCart = (productId, quantity) => {
+  //   commerce.cart.add(productId, quantity).then( item => {
+  //     setCart(item.cart);
+  //   }).catch( error => {
+  //     throw Error(error);
+  //   });
   // }
   
 
@@ -33,13 +51,18 @@ function App() {
     // fetchCart();
   }, [])
 
-  console.log(products)
 
-  
   return (
     <div className="app">
-      <Navbar  />
-      <Products products={products}   />
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Products 
+          products={products} 
+          isLoading={isLoading} 
+          // onAddToCart={handleAddToCart} 
+          errorMessage={errorMessage} />} 
+        />
+      </Routes>
     </div>
   );
 }
